@@ -21,7 +21,7 @@ import java.util.UUID;
 public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private UUID id;
 
     private String nome;
 
