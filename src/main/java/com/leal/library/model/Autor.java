@@ -7,6 +7,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -29,10 +30,10 @@ public class Autor {
     private String nacionalidade;
 
     @CreatedDate
-    private LocalDate dataCadastro;
+    private LocalDateTime dataCadastro;
 
     @LastModifiedDate
-    private LocalDate dataAtualizacao;
+    private LocalDateTime dataAtualizacao;
 
     private UUID idUsuario;
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
