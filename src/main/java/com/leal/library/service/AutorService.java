@@ -1,5 +1,6 @@
 package com.leal.library.service;
 
+import com.leal.library.dto.AutorDTO;
 import com.leal.library.model.Autor;
 import com.leal.library.repository.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,13 @@ public class AutorService {
         } else {
             return autorRepository.findAll();
         }
+    }
 
+    public void atualizarAutor(Autor autor) {
+        if (autor.getId() == null) {
+            throw new RuntimeException("O autor precisar existir para ser atualizado.");
+        }
+        autorRepository.save(autor);
     }
 
 }

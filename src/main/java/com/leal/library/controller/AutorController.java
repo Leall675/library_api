@@ -70,4 +70,19 @@ public class AutorController {
                 .toList();
         return ResponseEntity.ok(autoresDTO);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> atualizar(@PathVariable String id, @RequestBody AutorDTO autorDTO) {
+        var idAutor = UUID.fromString(id);
+        Optional<Autor> autorOptional = autorService.autorId(idAutor);
+        if (autorOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        Autor autor = autorOptional.get();
+        autor.setNome(autorDTO.nome());
+        autor.setNacionalidade(autorDTO.nacionalidade());
+        autor.setDataNascimento(autorDTO.dataNascimento());
+        autorService.atualizarAutor(autor);
+        return ResponseEntity.ok().build();
+    }
 }
