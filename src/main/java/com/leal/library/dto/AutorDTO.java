@@ -1,21 +1,17 @@
 package com.leal.library.dto;
 
 import com.leal.library.model.Autor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
-@NoArgsConstructor
-@Getter
-@Setter
-public class AutorDTO {
-    private String nome;
-    private LocalDate dataNascimento;
-    private String nacionalidade;
+public record AutorDTO(
+        UUID id,
+        String nome,
+        LocalDate dataNascimento,
+        String nacionalidade) {
 
-    public Autor toEntity() {
+    public Autor toDto() {
         Autor autor = new Autor();
         autor.setNome(this.nome);
         autor.setDataNascimento(this.dataNascimento);
