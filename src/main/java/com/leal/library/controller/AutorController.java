@@ -83,6 +83,6 @@ public class AutorController {
         autor.setNacionalidade(autorDTO.nacionalidade());
         autor.setDataNascimento(autorDTO.dataNascimento());
         autorService.atualizarAutor(autor);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }
