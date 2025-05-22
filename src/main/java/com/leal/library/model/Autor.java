@@ -36,6 +36,7 @@ public class Autor {
     private LocalDateTime dataAtualizacao;
 
     private UUID idUsuario;
-    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Livro> livros;
 }
