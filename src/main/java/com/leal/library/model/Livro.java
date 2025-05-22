@@ -18,7 +18,7 @@ import java.util.UUID;
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private UUID id;
     private String isbn;
     private String titulo;
     private LocalDate dataPublicacao;
