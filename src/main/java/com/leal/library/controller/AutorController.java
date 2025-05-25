@@ -6,6 +6,7 @@ import com.leal.library.exceptions.OperacaoNaoPermitidaException;
 import com.leal.library.exceptions.RegistroDiplicadoException;
 import com.leal.library.model.Autor;
 import com.leal.library.service.AutorService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class AutorController {
     }
 
     @PostMapping
-    public ResponseEntity<ErroResposta> salvar(@RequestBody AutorDTO autorDto) {
+    public ResponseEntity<ErroResposta> salvar(@RequestBody @Valid AutorDTO autorDto) {
         try {
             Autor autor = autorDto.toDto();
             autorService.salvarAutor(autor);
